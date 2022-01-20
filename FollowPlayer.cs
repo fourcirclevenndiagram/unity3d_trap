@@ -7,7 +7,7 @@ public class FollowPlayer : MonoBehaviour
     [Header("따라갈 대상 지정")]
     [SerializeField] protected Transform tf_Player;
     
-    [Header("따라갈 속도 지정")]
+    [Header("따라갈 속도 지정")][Range(0, 1)]
     [SerializeField] protected float speed;
 
     protected Vector3 currentPos;
