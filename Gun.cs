@@ -22,7 +22,7 @@ public class Gun : MonoBehaviour
     public ParticleSystem ps_MuzzleFlash;
 
     [Header("총알 프리팹")]
-    public GameObject go_Bullet_Prefab;
+    public GameObject go_Bullet_Prefab; // 프리팹의 리턴타입은 GameObject이므로
 
     [Header("총알 스피드")]
     public float speed;
