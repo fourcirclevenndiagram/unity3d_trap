@@ -2,17 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum WeaponType
+{
+    Normal_Gun, 
+}
 public class Gun : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("총 유형")]
+    public WeaponType weaponType;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("총 연사속도 조정")]
+    public float fireRate;
+
+    [Header("총알 개수")]
+    public int bulletCount;
+    public int maxBulletCount;
+
+    [Header("총구 섬광")]
+    public ParticleSystem ps_MuzzleFlash;
+
+    [Header("총알 프리팹")]
+    public GameObject go_Bullet_Prefab;
+
+    [Header("총알 스피드")]
+    public float speed;
+
+
 }
