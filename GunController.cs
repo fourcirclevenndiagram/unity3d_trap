@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+    [Header("총구 섬광")]
     [SerializeField] ParticleSystem ps_MuzzleFlash;
+
+    [Header("총알 프리팹")]
+    [SerializeField] GameObject go_Bullet_Prefab;
+
+    [Header("총알 스피드")]
+    [SerializeField] float bulletSpeed;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +37,11 @@ public class GunController : MonoBehaviour
     }
     void Fire()
     {
-        Debug.Log("총알 발사");
+        Debug.Log("Fire Bullet");
         ps_MuzzleFlash.Play();
-
+        // Instantiate(go_Bullet_Prefab, ps_MuzzleFlash.transform.position, Quaternion.identity);
+        var clone = Instantiate(go_Bullet_Prefab, ps_MuzzleFlash.transform.position, Quaternion.identity);
+        clone.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
     }
     void LockOnMouse()
     {
