@@ -24,6 +24,9 @@ public class Gun : MonoBehaviour
     [Header("총알 프리팹")]
     public GameObject go_Bullet_Prefab; // 프리팹의 리턴타입은 GameObject이므로
 
+    [Header("애니메이터")]
+    public Animator animator;
+
     [Header("총알 스피드")]
     public float speed;
 
