@@ -43,7 +43,7 @@ public class GunController : MonoBehaviour
     }
     void TryFire()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButton("Fire1"))
         {
             if(currentFireRate <= 0) // 1초에 1씩 감소하는 currentFireRate가 0보다 클 경우에는 발사 불가능
             {

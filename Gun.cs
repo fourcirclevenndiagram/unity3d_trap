@@ -27,5 +27,4 @@ public class Gun : MonoBehaviour
     [Header("총알 스피드")]
     public float speed;
 
-
 }
