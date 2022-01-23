@@ -56,7 +56,7 @@ public class GunController : MonoBehaviour
     {
         Debug.Log("Fire Bullet");
         currentGun.animator.SetTrigger("GunFire");
-        SoundManager.instance.PlaySE("NormalGun_Fire");
+        SoundManager.instance.PlaySE(currentGun.sound_Fire);
         // ps_MuzzleFlash.Play(); // Gun 스크립트로 뽑아냈으므로 무효한 변수명이 됨
         currentGun.ps_MuzzleFlash.Play();
         // Instantiate(go_Bullet_Prefab, ps_MuzzleFlash.transform.position, Quaternion.identity);
