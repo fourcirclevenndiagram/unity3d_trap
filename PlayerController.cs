@@ -41,6 +41,11 @@ public class PlayerController : MonoBehaviour
             Vector3 moveDir = new Vector3(0, 0, Input.GetAxisRaw("Horizontal"));
             myRigid.AddForce(moveDir * moveSpeed);
         }
+        if(Input.GetAxisRaw("Vertical") != 0)
+        {
+            Vector3 moveZ = new Vector3(-Input.GetAxisRaw("Vertical"), 0, 0);
+            myRigid.AddForce(moveZ * moveSpeed);
+        }
     }
     void TryJet()
     {
