@@ -12,6 +12,8 @@ public class JetEngineFuelManager : MonoBehaviour
     [SerializeField] Text txt_JetEngine;
     // Start is called before the first frame update
 
+    public bool IsFuel{get; private set;}
+
     PlayerController thePC;
     void Start()
     {
@@ -24,6 +26,10 @@ public class JetEngineFuelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(currentFuel > 0)
+            IsFuel = true;
+        else
+            IsFuel = false;
         if(thePC.IsJet)
         {
             currentFuel -= Time.deltaTime; // 1초에 1씩 감소
