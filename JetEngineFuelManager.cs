@@ -48,7 +48,8 @@ public class JetEngineFuelManager : MonoBehaviour
     {
         if(thePC.IsJet)
         {
-            currentFuel -= Time.deltaTime; // 1초에 1씩 감소
+            slider_JetEngine.gameObject.SetActive(true);
+            currentFuel -= Time.deltaTime; //ww 1초에 1씩 감소
             currentWaitRechargeFuel = 0;
             if(currentFuel <= 0)
                 currentFuel = 0;
@@ -68,6 +69,10 @@ public class JetEngineFuelManager : MonoBehaviour
             {
                 currentFuel += rechargeSpeed * Time.deltaTime;
             }
+        }
+        else
+        {
+            slider_JetEngine.gameObject.SetActive(false);
         }
     }
 }
