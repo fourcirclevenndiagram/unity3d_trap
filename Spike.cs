@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] int damage;
+    [SerializeField] float force;
+
+    void OnCollisionEnter(Collision other)
     {
-        
+        if(other.transform.CompareTag("Player"))
+        {
+            Debug.Log(damage + "를 플레이어에게 입혔습니다.");
+            other.transform.GetComponent<Rigidbody>().AddExplosionForce(force, transform.position, 5f);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
