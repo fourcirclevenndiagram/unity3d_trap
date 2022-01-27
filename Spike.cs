@@ -13,8 +13,8 @@ public class Spike : MonoBehaviour
         {
             Debug.Log(damage + "를 플레이어에게 입혔습니다.");
             other.transform.GetComponent<Rigidbody>().AddExplosionForce(force, transform.position, 5f);
+            other.transform.GetComponent<StatusManager>().DecreaseHp(damage);
         }
     }
-
 
 }
