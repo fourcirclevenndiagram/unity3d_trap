@@ -19,7 +19,7 @@ public class StatusManager : MonoBehaviour
         for(int i = 0; i < blinkCount * 2; i++)
         {
             mesh_PlayerGraphics.enabled = !mesh_PlayerGraphics.enabled;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(blinkSpeed);
         }
     }
 
