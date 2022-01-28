@@ -11,6 +11,7 @@ public class StatusManager : MonoBehaviour
 
     public void DecreaseHp(int _num)
     {
+        SoundManager.instance.PlaySE("Hurt");
         StartCoroutine(BlinkCoroutine());
     }
 
