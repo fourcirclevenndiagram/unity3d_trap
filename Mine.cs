@@ -50,6 +50,7 @@ public class Mine : MonoBehaviour
     }
     void Explosion()
     {
+        SoundManager.instance.PlaySE("Mine");
         GameObject clone = Instantiate(go_EffectPrefab, transform.position, Quaternion.identity);
         Destroy(clone, 2f);
         Destroy(gameObject);
