@@ -27,7 +27,7 @@ public class Mine : MonoBehaviour
     {
         if((transform.position - endPos1).sqrMagnitude <= 0.1f) // 25
             currentDestination = endPos2;
-        else if((transform.position - endPos2).sqrMagnitude <= 0.1f))
+        else if((transform.position - endPos2).sqrMagnitude <= 0.1f)
             currentDestination = endPos1;
         transform.position = Vector3.Lerp(transform.position, currentDestination, moveSpeed);
     }
