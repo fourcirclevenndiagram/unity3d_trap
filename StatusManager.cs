@@ -10,6 +10,8 @@ public class StatusManager : MonoBehaviour
 
     [SerializeField] Text[] txt_HpArray; // 체력 UI
 
+    bool isInvincibleMode = false; // 현재 무적 상태인지
+
     [SerializeField] float blinkSpeed;
     [SerializeField] int blinkCount;
 
@@ -23,12 +25,16 @@ public class StatusManager : MonoBehaviour
 
     public void DecreaseHp(int _num)
     {
-        currentHp -= _num;
-        UpdateHpStatus();
-        if(currentHp <= 0)
-            PlayerDead();
-        SoundManager.instance.PlaySE("Hurt");
-        StartCoroutine(BlinkCoroutine());
+        if(!isInvincibleMode)
+        {
+            currentHp -= _num;
+            UpdateHpStatus();
+            if(currentHp <= 0)
+                PlayerDead();
+            SoundManager.instance.PlaySE("Hurt");
+            StartCoroutine(BlinkCoroutine());
+        }
+
     }
 
     public void IncreaseHp(int _num)
@@ -44,11 +50,13 @@ public class StatusManager : MonoBehaviour
 
     IEnumerator BlinkCoroutine()
     {
+        isInvincibleMode = true;
         for(int i = 0; i < blinkCount * 2; i++)
         {
             mesh_PlayerGraphics.enabled = !mesh_PlayerGraphics.enabled;
             yield return new WaitForSeconds(blinkSpeed);
         }
+        isInvincibleMode = false;
     }
 
     void UpdateHpStatus()
