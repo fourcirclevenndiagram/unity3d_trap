@@ -20,7 +20,7 @@ public class ScoreManager : MonoBehaviour
             maxDistance = tf_Player.position.z;
             distanceScore = Mathf.RoundToInt(maxDistance);
         }
-        currentScore = extraScore;
+        currentScore = extraScore + distanceScore;
         // txt_Score.text = currentScore.ToString();
         txt_Score.text = string.Format("{0:000,000}", currentScore);
     }
