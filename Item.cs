@@ -5,7 +5,7 @@ using UnityEngine;
 public enum ItemType
 {
     Score,
-    Bullet,
+    NormalGun_Bullet,
 }
 
 public class Item : MonoBehaviour
@@ -13,5 +13,6 @@ public class Item : MonoBehaviour
     public ItemType itemType; // 아이템 유형
 
     public int extraScore; // 추가 점수
+    public int extraBullet; // 추가 획득 총알
 
 }
