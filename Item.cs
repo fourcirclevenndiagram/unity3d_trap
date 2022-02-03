@@ -15,4 +15,9 @@ public class Item : MonoBehaviour
     public int extraScore; // 추가 점수
     public int extraBullet; // 추가 획득 총알
 
+    void Update()
+    {
+        transform.Rotate(new Vector3(0, 90, 0) * Time.deltaTime);
+    }
+
 }
