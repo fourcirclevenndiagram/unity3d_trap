@@ -6,6 +6,13 @@ public class PickUpItem : MonoBehaviour
 {
     [SerializeField] Gun[] guns;
 
+    GunController theGC;
+
+    void Start()
+    {
+        theGC = FindObjectOfType<GunController>();
+    }
+
     const int NORMAL_GUN = 0;
     void OnTriggerEnter(Collider other)
     {
@@ -23,6 +30,7 @@ public class PickUpItem : MonoBehaviour
             {
                 SoundManager.instance.PlaySE("Score");
                 guns[NORMAL_GUN].bulletCount += item.extraBullet;
+                theGC.BulletUiSetting();
             }
             Destroy(other.gameObject);
         }

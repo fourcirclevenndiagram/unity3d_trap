@@ -26,8 +26,13 @@ public class GunController : MonoBehaviour
     void Start()
     {
         currentFireRate = 0;
-        txt_CurrentGunBullet.text = "x " + currentGun.bulletCount;
+        BulletUiSetting();
         
+    }
+
+    public void BulletUiSetting()
+    {
+        txt_CurrentGunBullet.text = "x " + currentGun.bulletCount;
     }
 
     // Update is called once per frame
@@ -60,7 +65,8 @@ public class GunController : MonoBehaviour
     {
         // Debug.Log("Fire Bullet");
         currentGun.bulletCount--;
-        txt_CurrentGunBullet.text = "x " + currentGun.bulletCount;
+        // txt_CurrentGunBullet.text = "x " + currentGun.bulletCount;
+        BulletUiSetting();
         currentGun.animator.SetTrigger("GunFire");
         SoundManager.instance.PlaySE(currentGun.sound_Fire);
         // ps_MuzzleFlash.Play(); // Gun 스크립트로 뽑아냈으므로 무효한 변수명이 됨
