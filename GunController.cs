@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GunController : MonoBehaviour
 {
@@ -19,10 +20,13 @@ public class GunController : MonoBehaviour
 
     float currentFireRate;
 
+    [SerializeField] Text txt_CurrentGunBullet;
+
     // Start is called before the first frame update
     void Start()
     {
         currentFireRate = 0;
+        txt_CurrentGunBullet.text = "x " + currentGun.bulletCount;
         
     }
 
@@ -43,7 +47,7 @@ public class GunController : MonoBehaviour
     }
     void TryFire()
     {
-        if(Input.GetButton("Fire1"))
+        if(Input.GetButton("Fire1") && currentGun.bulletCount > 0)
         {
             if(currentFireRate <= 0) // 1초에 1씩 감소하는 currentFireRate가 0보다 클 경우에는 발사 불가능
             {
@@ -54,7 +58,9 @@ public class GunController : MonoBehaviour
     }
     void Fire()
     {
-        Debug.Log("Fire Bullet");
+        // Debug.Log("Fire Bullet");
+        currentGun.bulletCount--;
+        txt_CurrentGunBullet.text = "x " + currentGun.bulletCount;
         currentGun.animator.SetTrigger("GunFire");
         SoundManager.instance.PlaySE(currentGun.sound_Fire);
         // ps_MuzzleFlash.Play(); // Gun 스크립트로 뽑아냈으므로 무효한 변수명이 됨
