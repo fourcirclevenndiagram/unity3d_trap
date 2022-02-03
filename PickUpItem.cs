@@ -28,7 +28,7 @@ public class PickUpItem : MonoBehaviour
             }
             else if(item.itemType == ItemType.NormalGun_Bullet)
             {
-                SoundManager.instance.PlaySE("Score");
+                SoundManager.instance.PlaySE("Bullet");
                 guns[NORMAL_GUN].bulletCount += item.extraBullet;
                 theGC.BulletUiSetting();
             }
