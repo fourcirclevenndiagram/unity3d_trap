@@ -1,0 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FloatingTextManager : MonoBehaviour
+{
+    public static FloatingTextManager instance;
+
+    [SerializeField] GameObject go_Prefab_FloatingText;
+    // Start is called before the first frame update
+    void Start()
+    {
+        instance = this;
+        
+    }
+    public void CreateFloatingText(Vector3 pos, string _text)
+    {
+        GameObject clone = Instantiate(go_Prefab_FloatingText, pos, go_Prefab_FloatingText.transform.rotation);
+        clone.GetComponentInChild<Text>().text = _text;
+    }
+
+
+}
