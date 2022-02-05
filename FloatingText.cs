@@ -8,10 +8,9 @@ public class FloatingText : MonoBehaviour
     [SerializeField] Animation anim;
     // Start is called before the first frame update
     void Start()
-    {
+    {        
         anim.Play();
-        destroyTime(gameObject, destroyTime);
-        
+        destroy(gameObject, destroyTime);        
     }
 
 }
