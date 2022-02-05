@@ -10,7 +10,7 @@ public class FloatingText : MonoBehaviour
     void Start()
     {        
         anim.Play();
-        destroy(gameObject, destroyTime);        
+        Destroy(gameObject, destroyTime);        
     }
 
 }
