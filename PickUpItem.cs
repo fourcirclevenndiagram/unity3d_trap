@@ -39,6 +39,7 @@ public class PickUpItem : MonoBehaviour
             }
             string message = "+" + extra;
             FloatingTextManager.instance.CreateFloatingText(other.transform.position, message);
+            
             Destroy(other.gameObject);
         }
     }
