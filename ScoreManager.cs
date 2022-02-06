@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     int currentScore; // 현재 점수
+    public int GetCurrentScore() { return currentScore;}
     public static int extraScore; // 아이템 점수
     int distanceScore; // 거리 점수
     float maxDistance; // 플레이어가 이동한 최대 거리
