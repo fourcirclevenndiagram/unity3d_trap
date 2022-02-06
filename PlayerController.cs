@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static bool canMove = true;
+
     [Header("속도 관련 변수")]
     [SerializeField] float moveSpeed;
     [SerializeField] float jetPackSpeed;
@@ -39,13 +41,13 @@ public class PlayerController : MonoBehaviour
     }
     void TryMove()
     {
-        if(Input.GetAxisRaw("Horizontal") != 0)
+        if(Input.GetAxisRaw("Horizontal") != 0 && canMove)
         {
             // D키 = 1, A키 = -1
             Vector3 moveDir = new Vector3(0, 0, Input.GetAxisRaw("Horizontal"));
             myRigid.AddForce(moveDir * moveSpeed);
         }
-        if(Input.GetAxisRaw("Vertical") != 0)
+        if(Input.GetAxisRaw("Vertical") != 0 && canMove)
         {
             Vector3 moveZ = new Vector3(-Input.GetAxisRaw("Vertical"), 0, 0);
             myRigid.AddForce(moveZ * moveSpeed);
@@ -53,7 +55,7 @@ public class PlayerController : MonoBehaviour
     }
     void TryJet()
     {
-        if(Input.GetKey(KeyCode.Space) && theFuel.IsFuel)
+        if(Input.GetKey(KeyCode.Space) && theFuel.IsFuel && canMove)
         {
             if(!IsJet)
             {
