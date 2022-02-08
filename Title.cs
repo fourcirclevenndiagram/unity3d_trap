@@ -8,7 +8,6 @@ public class Title : MonoBehaviour
     public void StartBtn()
     {
         SceneManager.LoadScene("InGameScene");
-
     }
     public void ExitBtn()
     {

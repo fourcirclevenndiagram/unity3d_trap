@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StatusManager : MonoBehaviour
 {
@@ -72,7 +73,8 @@ public class StatusManager : MonoBehaviour
 
     void PlayerDead()
     {
-        Debug.Log("으앙 쥬금");
+        // Debug.Log("으앙 쥬금");
+        SceneManager.LoadScene("Title");
     }
 
 }
