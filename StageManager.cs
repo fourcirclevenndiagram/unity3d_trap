@@ -24,11 +24,18 @@ public class StageManager : MonoBehaviour
 
     public void NextBtn()
     {
-        PlayerController.canMove = true;
-        playerRigid.isKinematic = false;
-        playerRigid.gameObject.transform.position = tf_OriginPos.position;
-        go_Stages[currentStage++].SetActive(false);
-        go_Stages[currentStage].SetActive(true);
-        go_UI.SetActive(false);
+        if(currentStage < go_Stages.Length - 1)
+        {            
+            PlayerController.canMove = true;
+            playerRigid.isKinematic = false;
+            playerRigid.gameObject.transform.position = tf_OriginPos.position;
+            go_Stages[currentStage++].SetActive(false);
+            go_Stages[currentStage].SetActive(true);
+            go_UI.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("모든 스테이지를 클리어함");        
+        }
     }
 }
