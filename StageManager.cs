@@ -28,6 +28,7 @@ public class StageManager : MonoBehaviour
         {            
             PlayerController.canMove = true;
             playerRigid.isKinematic = false;
+            theSM.ResetCurrentScore();
             playerRigid.gameObject.transform.position = tf_OriginPos.position;
             go_Stages[currentStage++].SetActive(false);
             go_Stages[currentStage].SetActive(true);
